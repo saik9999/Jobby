@@ -1,0 +1,13 @@
+.job-item-bg-similar {
+  width: 30%;
+  background-color: #272727;
+  border-radius: 13px;
+  padding: 23px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .job-item-bg-similar {
+    width: 100%;
+  }
+}

@@ -1,0 +1,99 @@
+.details-bg {
+  background-color: #000000;
+  min-height: 100vh;
+}
+.job-item-bg-con {
+  background-color: #000000;
+  min-height: 100vh;
+  padding-top: 30px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 20px;
+  width: 100%;
+}
+.job-item-bg-detail {
+  background-color: #272727;
+  border-radius: 13px;
+  padding: 35px;
+}
+.description-1-detail {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.job-item-head-detail {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 25px;
+  font-weight: 500;
+}
+.description-con {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.anchor {
+  color: #6366f1;
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 23px;
+  text-decoration: none;
+}
+.spn {
+  margin-left: 5px;
+}
+.skills-con {
+  padding-left: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.skill-li {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.skill-name {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin-left: 5px;
+}
+.dec-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.similar-con {
+  padding-left: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .job-item-bg-detail {
+    padding: 20px;
+  }
+  .skill-img {
+    height: 40px;
+    width: 40px;
+  }
+  .skill-li {
+    width: 50%;
+  }
+  .skill-name {
+    margin-left: 10px;
+  }
+  .dec-con {
+    flex-direction: column;
+  }
+  .similar-con {
+    flex-direction: column;
+  }
+}
