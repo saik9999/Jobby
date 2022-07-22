@@ -89,11 +89,13 @@ class JobItemDetails extends Component {
         skills: updatedSkills,
         similarJobs: updatedSimilarJobs,
       })
+    } else {
+      this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
 
   renderLoadingView = () => (
-    <div className="profile-loader">
+    <div className="profile-loader" testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
@@ -132,11 +134,11 @@ class JobItemDetails extends Component {
           <div className="location-con">
             <div className="loc-con">
               <MdLocationOn size="25" color="#ffffff" />
-              <span className="location">{location}</span>
+              <p className="location">{location}</p>
             </div>
             <div className="loc-con">
               <BsFillBriefcaseFill size="25" color="#ffffff" />
-              <span className="location">{employmentType}</span>
+              <p className="location">{employmentType}</p>
             </div>
             <p className="lpa">{packagePerAnnum}</p>
           </div>
@@ -154,7 +156,7 @@ class JobItemDetails extends Component {
           <h1 className="job-item-head-detail">Skills</h1>
           <ul className="skills-con">
             {skills.map(each => (
-              <li className="skill-li">
+              <li className="skill-li" key={each.name}>
                 <img
                   src={each.imageUrl}
                   alt={each.name}
@@ -187,9 +189,9 @@ class JobItemDetails extends Component {
         alt="failure view"
         className="failure-img-detail"
       />
-      <h1 className="failure-heading">Oops! Something went wrong</h1>
+      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
       <p className="failure-description">
-        We cannot seem to find the page you are looking for.
+        We cannot seem to find the page you are looking for
       </p>
       <button onClick={this.onFailureJobs} className="retry-btn" type="button">
         Retry

@@ -53,7 +53,15 @@
 }
 @media screen and (max-width: 767px) {
   .home-bg {
-    display: none;
+    background-image: url('https://assets.ccbp.in/frontend/react-js/home-sm-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
   }
   .content-con {
     width: 100%;

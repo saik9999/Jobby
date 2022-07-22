@@ -35,11 +35,11 @@ const SimilarJobs = props => {
       <div className="location-con">
         <div className="loc-con">
           <MdLocationOn size="25" color="#ffffff" />
-          <span className="location">{location}</span>
+          <p className="location">{location}</p>
         </div>
         <div className="loc-con">
           <BsFillBriefcaseFill size="25" color="#ffffff" />
-          <span className="location">{employmentType}</span>
+          <p className="location">{employmentType}</p>
         </div>
       </div>
     </li>

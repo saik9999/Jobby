@@ -51,6 +51,7 @@ hr {
   color: #ffffff;
   font-family: 'Roboto';
   font-weight: 500;
+  font-size: 18px;
 }
 .ul-con {
   padding-left: 0px;
@@ -165,6 +166,12 @@ hr {
   .jobs-con {
     width: 100%;
     margin: 0px;
+  }
+  .failure-heading {
+    font-size: 20px;
+  }
+  .failure-description {
+    font-size: 15px;
   }
 }
 .search-btn {

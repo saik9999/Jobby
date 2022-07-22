@@ -75,6 +75,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.failure-img-detail {
+  width: 40%;
+}
 
 @media screen and (max-width: 768px) {
   .job-item-bg-detail {
@@ -95,5 +98,8 @@
   }
   .similar-con {
     flex-direction: column;
+  }
+  .failure-img-detail {
+    width: 70%;
   }
 }

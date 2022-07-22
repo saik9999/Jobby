@@ -72,18 +72,18 @@ class Jobs extends Component {
   onChangeEmploymentType = event => {
     const {checkEmploymentType} = this.state
     if (event.target.checked === true) {
-      this.setState({
-        checkEmploymentType: [...checkEmploymentType, event.target.value],
-      })
+      this.setState(
+        {
+          checkEmploymentType: [...checkEmploymentType, event.target.value],
+        },
+        this.gettingJobs,
+      )
     } else {
       const value = checkEmploymentType.filter(
         each => each !== event.target.value,
       )
-      this.setState({checkEmploymentType: value})
+      this.setState({checkEmploymentType: value}, this.gettingJobs)
     }
-    setTimeout(() => {
-      this.gettingJobs()
-    }, 0)
   }
 
   gettingProfile = async () => {
@@ -120,7 +120,7 @@ class Jobs extends Component {
   failureProfile = () => (
     <div className="failure-profile-bg">
       <button
-        onClick={this.onFailureProfile()}
+        onClick={this.onFailureProfile}
         className="retry-btn"
         type="button"
       >
@@ -225,7 +225,7 @@ class Jobs extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="profile-loader">
+    <div className="profile-loader" testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
@@ -269,9 +269,6 @@ class Jobs extends Component {
 
   onSearchChange = event => {
     this.setState({searchInput: event.target.value})
-    setTimeout(() => {
-      this.gettingJobs()
-    }, 0)
   }
 
   onKeyDown = event => {
@@ -285,7 +282,7 @@ class Jobs extends Component {
   }
 
   onChangeLpa = event => {
-    this.setState({packageLpa: event.target.value})
+    this.setState({packageLpa: event.target.value}, this.gettingJobs)
   }
 
   render() {
@@ -306,17 +303,26 @@ class Jobs extends Component {
               onKeyDown={this.onKeyDown}
             />
             <div className="search-icon-con">
-              <BsSearch onClick={this.onClickSearch} className="search-icon" />
+              <button
+                className="search-btn"
+                type="button"
+                testid="searchButton"
+              >
+                <BsSearch
+                  onClick={this.onClickSearch}
+                  className="search-icon"
+                />
+              </button>
             </div>
           </div>
           <div className="profile-bg-con">
             {this.profileRender()}
             <hr />
             <div className="filter-con">
-              <p className="filter-head">Type of Employment</p>
+              <h1 className="filter-head">Type of Employment</h1>
               <ul className="ul-con">
                 {employmentTypesList.map(each => (
-                  <li className="li-item">
+                  <li className="li-item" key={each.employmentTypeId}>
                     <input
                       className="input"
                       id={each.employmentTypeId}
@@ -335,10 +341,10 @@ class Jobs extends Component {
                 ))}
               </ul>
               <hr />
-              <p className="filter-head">Salary Range</p>
+              <h1 className="filter-head">Salary Range</h1>
               <ul className="ul-con">
                 {salaryRangesList.map(each => (
-                  <li className="li-item">
+                  <li className="li-item" key={each.salaryRangeId}>
                     <input
                       className="input"
                       id={each.salaryRangeId}
@@ -373,11 +379,9 @@ class Jobs extends Component {
                   className="search-btn"
                   type="button"
                   testid="searchButton"
+                  onClick={this.onClickSearch}
                 >
-                  <BsSearch
-                    onClick={this.onClickSearch}
-                    className="search-icon"
-                  />
+                  <BsSearch className="search-icon" />
                 </button>
               </div>
             </div>

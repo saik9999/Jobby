@@ -4,7 +4,13 @@ import {Redirect} from 'react-router-dom'
 import './index.css'
 
 class Login extends Component {
-  state = {username: '', password: '', errorMsg: '', errorShow: false}
+  state = {
+    username: '',
+    password: '',
+    errorMsg: '',
+    errorShow: false,
+    loading: false,
+  }
 
   onUserChange = event => {
     this.setState({username: event.target.value})
@@ -15,6 +21,7 @@ class Login extends Component {
   }
 
   getLogin = async event => {
+    this.setState({loading: true})
     event.preventDefault()
     const {username, password} = this.state
     const userDetails = {username, password}
@@ -38,14 +45,15 @@ class Login extends Component {
     Cookies.set('jwt_token', jwtToken, {expires: 30})
 
     history.replace('/')
+    this.setState({loading: false})
   }
 
   onFailure = errorMsg => {
-    this.setState({errorShow: true, errorMsg})
+    this.setState({errorShow: true, errorMsg, loading: false})
   }
 
   render() {
-    const {username, password, errorShow, errorMsg} = this.state
+    const {username, password, errorShow, errorMsg, loading} = this.state
     const jwtToken = Cookies.get('jwt_token')
 
     if (jwtToken !== undefined) {
